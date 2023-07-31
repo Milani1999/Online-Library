@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="LoginData">
     <div class="body">
       <div class="logincard">
         <h1 class="heading">E-Library</h1>
@@ -9,7 +9,7 @@
           <input
             type="text"
             class="form-control"
-            v-model="username"
+            v-model="user.email"
             placeholder="usename"
           />
         </div>
@@ -18,36 +18,55 @@
           <input
             type="text"
             class="form-control"
-            v-model="password"
+            v-model="user.password"
             placeholder="password"
           />
         </div>
-        <button class="btn btn-dark btn-block">Login</button>
+        <div class="link">
+            <router-link :to="{ path: '/' }">Don't have an account?</router-link>
+        </div>
+        <button class="btn btn-dark btn-block" type="submit">Login</button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "Login",
   data() {
     return {
-      username: "",
-      password: "",
+      result: {},
+      user: {
+        email: "",
+        password: "",
+      },
     };
   },
-  // methods: {
-  //   async handleSubmit() {
-  //     const response = await axios.post('Login', {
-  //       username: this.username,
-  //       password: this.password,
-  //     });
-  //     console.log(response);
-  //   },
-  // },
+  created() {},
+  mounted() {
+    console.log("mmmm");
+  },
+  methods: {
+    LoginData() {
+      axios.post("login", this.user).then(({ data }) => {
+        console.log(data);
+        try {
+          if (data.status === true) {
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            alert("Login Succesful");
+            this.$router.push({ path: "/Books" });
+          } else {
+            alert("Login failed");
+          }
+        } catch (err) {
+          alert("failed");
+        }
+      });
+    },
+  },
 };
 </script>
 
@@ -60,26 +79,26 @@ export default {
   align-items: center;
 }
 
-.logincard{
+.logincard {
   background-color: rgba(243, 241, 241);
   width: 30%;
   padding: 55px;
   border-radius: 50px;
 }
 
-.heading, .login-heading{
+.heading,
+.login-heading {
   text-align: center;
   padding-bottom: 20px;
 }
 
-label{
+label {
   padding-top: 10px;
   font-weight: bold;
 }
 
-.btn{
+.btn {
   margin-top: 20px;
   width: 100%;
 }
-
 </style>
