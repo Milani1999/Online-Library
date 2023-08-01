@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2023 at 06:29 PM
+-- Generation Time: Aug 01, 2023 at 08:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `online_library`
+-- Database: `library`
 --
 
 -- --------------------------------------------------------
@@ -43,12 +43,12 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `description`, `type`, `price`, `borrowed`, `created_at`, `updated_at`) VALUES
-(1, 'To Kill a Mockingbird', 'A classic novel about racial injustice and moral growth.', 'Fiction', '1200.00', 1, '2023-07-31 18:30:00', '2023-08-01 10:09:23'),
-(2, '1984', 'A dystopian novel that explores the dangers of totalitarianism', 'Fiction', '7878.00', 1, '2023-07-31 04:44:46', '2023-08-01 10:08:05'),
+(1, 'To Kill a Mockingbird', 'A classic novel about racial injustice and moral growth.', 'Fiction', '1200.00', 0, '2023-07-31 18:30:00', '2023-08-01 12:32:10'),
+(2, '1984', 'A dystopian novel that explores the dangers of totalitarianism', 'Fiction', '7878.00', 0, '2023-07-31 04:44:46', '2023-08-01 12:32:36'),
 (3, 'Pride and Prejudice', 'A timeless romance novel by Jane Austen.', 'Fiction', '2356.00', 0, '2023-08-06 04:38:25', '2023-08-01 09:17:29'),
-(4, 'The Great Gatsby', 'A story of love, wealth, and social decline in the Roaring Twentie', 'Fiction', '4141.00', 1, '2023-08-01 11:03:11', '2023-08-01 10:07:40'),
-(5, 'Harry Potter and the Sorcerer\'s Stone', 'The first book in the beloved Harry Potter series.', 'Fantasy', '2365.00', 1, '2023-08-01 11:03:11', '2023-08-01 10:09:26'),
-(6, 'One Hundred Years of Solitude', 'A magical realism novel by Gabriel Garcia Marquez', 'Magical Realism', '1256.00', 0, '2023-07-31 04:44:46', '2023-08-11 07:04:42'),
+(4, 'The Great Gatsby', 'A story of love, wealth, and social decline in the Roaring Twentie', 'Fiction', '4141.00', 0, '2023-08-01 11:03:11', '2023-08-01 12:32:41'),
+(5, 'Harry Potter and the Sorcerer\'s Stone', 'The first book in the beloved Harry Potter series.', 'Fantasy', '2365.00', 0, '2023-08-01 11:03:11', '2023-08-01 12:32:45'),
+(6, 'One Hundred Years of Solitude', 'A magical realism novel by Gabriel Garcia Marquez', 'Magical Realism', '1256.00', 0, '2023-07-31 04:44:46', '2023-08-01 12:30:41'),
 (7, 'Dracula', 'A classic gothic horror novel by Bram Stoker', 'Horror', '899.00', 0, '2023-08-15 11:07:22', '2023-07-31 18:30:00'),
 (8, 'Dune', 'A science fiction novel set in a distant future', 'Science Fiction', '7878.00', 0, '2023-08-16 11:07:22', '2023-08-01 10:06:53');
 
@@ -65,15 +65,6 @@ CREATE TABLE `borrowed_books` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `borrowed_books`
---
-
-INSERT INTO `borrowed_books` (`id`, `user_id`, `book_id`, `created_at`, `updated_at`) VALUES
-(28, 1, 4, '2023-08-01 10:07:40', '2023-08-01 10:07:40'),
-(30, 14, 1, '2023-08-01 10:09:23', '2023-08-01 10:09:23'),
-(31, 14, 5, '2023-08-01 10:09:26', '2023-08-01 10:09:26');
 
 -- --------------------------------------------------------
 
@@ -168,8 +159,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'milani', 'milani@gmail.com', NULL, '$2y$10$9NLWJR69mQmpzQ2Q8yln9ewSv532JiYHeDqq3f0k6YL3qrueZzt62', NULL, '2023-08-01 01:53:19', '2023-08-01 01:53:19'),
-(14, 'yogeswaran', 'yogeswaran@gmail.com', NULL, '$2y$10$wKd49ghIsixWi71zMVY3fuxU7XGxdb0Q.j6ZGIiagB0CeTo1UYiA.', NULL, '2023-08-01 10:09:18', '2023-08-01 10:09:18');
+(1, 'milani', 'milani@gmail.com', NULL, '$2y$10$9NLWJR69mQmpzQ2Q8yln9ewSv532JiYHeDqq3f0k6YL3qrueZzt62', NULL, '2023-08-01 01:53:19', '2023-08-01 01:53:19');
 
 --
 -- Indexes for dumped tables
@@ -237,7 +227,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `borrowed_books`
 --
 ALTER TABLE `borrowed_books`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -261,7 +251,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
