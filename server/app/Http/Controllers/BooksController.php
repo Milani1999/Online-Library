@@ -15,17 +15,8 @@ class BooksController extends Controller
 }
 
     public function borrowBook(Request $request, $id, $userId)
-    {
+{
     $book = Book::find($id);
-
-    if (!$book) {
-        return response()->json(['message' => 'Book not found'], 404);
-    }
-
-    if ($book->borrowed) {
-        return response()->json(['message' => 'Book already borrowed'], 400);
-    }
-
     $book->borrowed = true;
     $book->save();
 
@@ -42,15 +33,6 @@ class BooksController extends Controller
 public function returnBook(Request $request, $id)
 {
     $book = Book::find($id);
-
-    if (!$book) {
-        return response()->json(['message' => 'Book not found'], 404);
-    }
-
-    if (!$book->borrowed) {
-        return response()->json(['message' => 'Book is not borrowed'], 400);
-    }
-
     $book->borrowed = false;
     $book->save();
 
