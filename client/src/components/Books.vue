@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <Navbar />
+  <div class="books_page">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -17,8 +18,8 @@
           <td>{{ book.title }}</td>
           <td>{{ book.description }}</td>
           <td>{{ book.type }}</td>
-          <td>{{ book.price }}</td>
-          <td><button class="btn btn-primary" @click="borrowBook(book.id)">Borrow</button></td>
+          <td>Rs. {{ book.price }}</td>
+          <td><button class="btn btn-secondary" @click="borrowBook(book.id)">Borrow</button></td>
         </tr>
       </tbody>
     </table>
@@ -27,9 +28,11 @@
 
 <script>
 import axios from "axios";
+import Navbar from "./Navbar.vue"
 
 export default {
   name: "Books",
+  components: { Navbar },
   data() {
     return {
       result: [],
@@ -56,6 +59,11 @@ export default {
         alert(error);
       });
     },
+
+    logout() {
+      localStorage.removeItem("userInfo");
+      this.$router.push({ path: "/login" });
+    }
   },
 };
 </script>

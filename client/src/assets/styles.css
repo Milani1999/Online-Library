@@ -1,0 +1,92 @@
+/*****************************************************Navbar**************************************************/
+
+.nav-link {
+  font-size: 17px;
+  color: aliceblue;
+  font-weight: bolder;
+}
+
+.nav-link:hover {
+  color: rgb(92, 92, 90);
+}
+
+ul li:last-child {
+  margin-left: 950px;
+}
+
+/***************************************************Login and Register******************************************/
+
+.body {
+  background-image: url("@/assets/library.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.glass {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logincard {
+  width: 30%;
+  padding: 55px;
+  border-radius: 50px;
+  background: rgba(252, 252, 252, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(255, 254, 254, 0.1);
+  backdrop-filter: blur(7.6px);
+  -webkit-backdrop-filter: blur(7.6px);
+  border: 5px solid rgba(14, 14, 14, 0.5);
+}
+
+.heading{
+  font-size: 40px;
+}
+
+.login-heading{
+  font-size: 30px;
+}
+
+
+.heading,
+.login-heading {
+  text-align: center;
+  padding-bottom: 20px;
+  color: rgb(8, 8, 8);
+}
+
+input{
+  margin: 30px 0;
+  border-radius: 100px;
+  height: 45px;
+}
+
+.logincard .btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.link{
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover{
+  color: rgb(4, 9, 56);
+}
+
+/*************************************Books page*************************************/
+
+.books_page,
+.borrowed_page {
+  padding: 30px;
+}
+
+tr {
+  text-align: center;
+  vertical-align: middle;
+}
