@@ -2,7 +2,7 @@
 
 Clone/download the project  
 Open the project in the code editor  
-inside the server folder create .env file and put these codes (you can use the database inside(server/Database/onlinelibrary.sql))  
+inside the server folder create .env file and put these codes.    
 
 DB_CONNECTION=mysql  
 DB_HOST=127.0.0.1  
@@ -10,6 +10,8 @@ DB_PORT=3306
 DB_DATABASE=<your_database_name>  
 DB_USERNAME=root  
 DB_PASSWORD=  
+
+You can use the database inside(server/LibraryDatabase/library.sql))  
 
 To run the front end open the terminal and follow the commands  
 cd client  
