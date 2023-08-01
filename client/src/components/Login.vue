@@ -6,24 +6,14 @@
         <h3 class="login-heading">Login</h3>
         <div class="form-group">
           <label>Email</label>
-          <input
-            type="email"
-            class="form-control"
-            v-model="user.email"
-            placeholder="email"
-          />
+          <input type="email" class="form-control" v-model="user.email" placeholder="email" />
         </div>
         <div class="form-group">
           <label> Password </label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="user.password"
-            placeholder="password"
-          />
+          <input type="text" class="form-control" v-model="user.password" placeholder="password" />
         </div>
         <div class="link">
-            <router-link :to="{ path: '/' }">Don't have an account?</router-link>
+          <router-link :to="{ path: '/' }">Don't have an account?</router-link>
         </div>
         <button class="btn btn-dark btn-block" type="submit">Login</button>
       </div>
@@ -45,24 +35,26 @@ export default {
       },
     };
   },
-  created() {},
+  created() { },
   mounted() {
   },
   methods: {
     LoginData() {
-      axios.post("login", this.user).then(({ data }) => {
+      axios.post("login", this.user).then((response) => {
         try {
+          const data = response.data;
           if (data.status === true) {
             localStorage.setItem('userInfo', JSON.stringify(data));
-            alert("Login Succesful");
+            alert(data.message);
             this.$router.push({ path: "/Books" });
           } else {
-            alert("Login failed");
+            alert(data.message);
           }
         } catch (err) {
-          alert("failed");
+          alert(err.message);
         }
       });
+
     },
   },
 };

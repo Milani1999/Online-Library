@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "./components/Login.vue";
+import Login from "./components/Login";
 import Register from "./components/Register"
-import Books from "./components/Books.vue"
+import Books from "./components/Books"
+import UserBorrowed from "./components/UserBorrowed"
 
 const routes = [
   { path: "/", component: Register },
   { path: "/login", component: Login },
   { path: "/books", component: Books },
+  { path: "/borrowed", component: UserBorrowed },
 ];
 
 const router = createRouter({
