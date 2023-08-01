@@ -13,7 +13,7 @@ class RegisterController extends Controller
     {
         $input = $request->all();
 
-        User::create([
+        $user =  User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password'])
@@ -21,7 +21,8 @@ class RegisterController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => "Registration Successful!"
+            'message' => "Registration Successful!",
+            'id' => $user->id
         ]);
     }
 }

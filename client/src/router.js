@@ -6,7 +6,7 @@ import Books from "./components/Books.vue"
 const routes = [
   { path: "/", component: Register },
   { path: "/login", component: Login },
-  { path: "/Books", component: Books },
+  { path: "/books", component: Books },
 ];
 
 const router = createRouter({

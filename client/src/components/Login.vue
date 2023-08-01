@@ -5,12 +5,12 @@
         <h1 class="heading">E-Library</h1>
         <h3 class="login-heading">Login</h3>
         <div class="form-group">
-          <label>Username</label>
+          <label>Email</label>
           <input
-            type="text"
+            type="email"
             class="form-control"
             v-model="user.email"
-            placeholder="usename"
+            placeholder="email"
           />
         </div>
         <div class="form-group">
@@ -47,12 +47,10 @@ export default {
   },
   created() {},
   mounted() {
-    console.log("mmmm");
   },
   methods: {
     LoginData() {
       axios.post("login", this.user).then(({ data }) => {
-        console.log(data);
         try {
           if (data.status === true) {
             localStorage.setItem('userInfo', JSON.stringify(data));
@@ -97,7 +95,7 @@ label {
   font-weight: bold;
 }
 
-.btn {
+.logincard .btn {
   margin-top: 20px;
   width: 100%;
 }

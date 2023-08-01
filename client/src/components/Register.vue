@@ -6,51 +6,29 @@
         <h3 class="login-heading">Login</h3>
         <div class="form-group">
           <label>Full Name</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="user.name"
-            placeholder="full name"
-            name="name"
-            id="name"
-          />
+          <input type="text" class="form-control" v-model="user.name" placeholder="full name" name="name" id="name" />
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="user.email"
-            placeholder="email"
-            name="email"
-            id="email"
-          />
+          <input type="email" class="form-control" v-model="user.email" placeholder="email" name="email" id="email" />
         </div>
         <div class="form-group">
           <label> Password </label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="user.password"
-            placeholder="password"
-            name="password"
-            id="password"
-          />
+          <input type="text" class="form-control" v-model="user.password" placeholder="password" name="password"
+            id="password" />
         </div>
         <div class="link">
-          <router-link :to="{ path: 'login' }"
-            >Already have an account?</router-link
-          >
+          <router-link :to="{ path: 'login' }">Already have an account?</router-link>
         </div>
         <button class="btn btn-dark btn-block" type="submit" value="submit">
-          Login
+          Register
         </button>
       </div>
     </div>
   </form>
 </template>
   
-  <script>
+<script>
 import axios from "axios";
 
 export default {
@@ -65,14 +43,12 @@ export default {
       },
     };
   },
-  created() {},
+  created() { },
   mounted() {
-    console.log("created");
   },
   methods: {
     saveData() {
       axios.post("register", this.user).then(({ data }) => {
-        console.log(data);
         try {
           localStorage.setItem("userInfo", JSON.stringify(data));
           alert("Login Succesful");
@@ -87,6 +63,37 @@ export default {
 </script>
 
 <style>
+.body {
+  background-image: url("@/assets/library.jpeg");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logincard {
+  background-color: rgba(243, 241, 241);
+  width: 30%;
+  padding: 55px;
+  border-radius: 50px;
+}
+
+.heading,
+.login-heading {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+label {
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.logincard .btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
 .link {
   padding-top: 10px;
 }
