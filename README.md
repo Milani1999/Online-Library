@@ -1,8 +1,8 @@
 # Online-Library
 
-Clone/download the project
-Open the project in the code editor
-inside the server folder create .env file and put these codes
+Clone/download the project  
+Open the project in the code editor  
+inside the server folder create .env file and put these codes  
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
