@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $table = 'books';
-    protected $primaryKey = 'Book_ID';
-    protected $fillable = ['Title', 'Description', 'Genre/Type', 'Price'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['title', 'description', 'type', 'price'];
     
     use HasFactory;
+
+    public function borrowedBooks()
+    {
+        return $this->hasMany(BorrowedBook::class, 'id');
+    }
 }

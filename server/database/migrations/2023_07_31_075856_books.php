@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books',function(Blueprint $table){
-            $table->id('Book_ID');
-            $table->string('Title');
-            $table->string('Description');
-            $table->string('Genre/Type');
-            $table->decimal('Price',10,2);
+            $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('type');
+            $table->decimal('price',10,2);
+            $table->boolean('borrowed')->default(false);
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('books');
     }

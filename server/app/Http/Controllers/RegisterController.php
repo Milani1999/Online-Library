@@ -15,7 +15,7 @@ class RegisterController extends Controller
 
         User::create([
             'name' => $input['name'],
-            'email' => $input['email'], // Fixed typo here: $input instead of $ipnut
+            'email' => $input['email'],
             'password' => Hash::make($input['password'])
         ]);
 
